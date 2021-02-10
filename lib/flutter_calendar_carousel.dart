@@ -134,6 +134,7 @@ class CalendarCarousel<T extends EventInterface> extends StatefulWidget {
   final bool showIconBehindDayText;
   final ScrollPhysics pageScrollPhysics;
   final bool shouldShowTransform;
+  final Widget headerWidget;
 
   CalendarCarousel({
     Key key,
@@ -213,6 +214,7 @@ class CalendarCarousel<T extends EventInterface> extends StatefulWidget {
     this.showIconBehindDayText = false,
     this.pageScrollPhysics = const ScrollPhysics(),
     this.shouldShowTransform = true,
+    this.headerWidget,
   }): super(key: key);
 
   @override
@@ -302,6 +304,7 @@ class _CalendarState<T extends EventInterface> extends State<CalendarCarousel<T>
       height: widget.height,
       child: Column(
         children: <Widget>[
+          widget.headerWidget ??
           CalendarHeader(
             showHeader: widget.showHeader,
             headerMargin: widget.headerMargin,
